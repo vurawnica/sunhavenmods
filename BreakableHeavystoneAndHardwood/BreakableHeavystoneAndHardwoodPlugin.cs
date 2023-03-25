@@ -8,7 +8,7 @@ using UnityEngine;
 namespace BreakableHeavystoneAndHardwood;
 
 [BepInPlugin(pluginGuid, pluginName, pluginVersion)]
-public class Plugin : BaseUnityPlugin
+public class BreakableHeavystoneAndHardwoodPlugin : BaseUnityPlugin
 {
     private const string pluginGuid = "vurawnica.sunhaven.breakableheavystoneandhardwood";
     private const string pluginName = "BreakableHeavystoneAndHardwood";
@@ -21,7 +21,7 @@ public class Plugin : BaseUnityPlugin
     private void Awake()
     {
         // Plugin startup logic
-        Plugin.logger = this.Logger;
+        BreakableHeavystoneAndHardwoodPlugin.logger = this.Logger;
         logger.LogInfo((object) $"Plugin {pluginName} is loaded!");
         m_required_power = this.Config.Bind<float>("General", "Required Tool Level for Heavystone/Hardwood", 0, "3 is the vanilla value indicating adamant, 0 is the default for this mod");
 		this.m_harmony.PatchAll();
