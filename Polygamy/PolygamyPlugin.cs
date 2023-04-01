@@ -154,6 +154,10 @@ public class PolygamyPlugin : BaseUnityPlugin
             {
                 return text + "[]<i>(You must be dating and not already married to this character, achieved 15 full hearts, and progressed far enough in the dialogue to marry them)</i>";
             }
+            if(SingletonBehaviour<GameSave>.Instance.GetProgressBoolCharacter("Married"))
+            {
+                Player.Instance.Inventory.RemoveItem(6107, 1);
+            }
             response = true;
             SingletonBehaviour<GameSave>.Instance.SetProgressBoolCharacter("EngagedToRNPC", value: true);
             switch (____npcName)
